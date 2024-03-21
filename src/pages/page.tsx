@@ -75,7 +75,10 @@ export default function Home() {
             {data.map((datas) => {
               return (
                 <>
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                  <tr
+                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                    key={datas._id}
+                  >
                     <td className="px-6 py-4"> {datas._id}</td>
                     <td className="px-6 py-4"> {datas.fname}</td>
                     <td className="px-6 py-4"> {datas.lname}</td>
