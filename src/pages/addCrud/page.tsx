@@ -19,7 +19,7 @@ export default function Add() {
 
     try {
       const response = await axios.post(
-        `http://localhost:8000/api/crud/post`,
+        `${import.meta.env.VITE_BACKEND_URL}api/crud/post`,
         data
       );
       if (response.data && response.data.error) {

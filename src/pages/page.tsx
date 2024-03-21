@@ -16,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/crud/get`,
+        `${import.meta.env.VITE_BACKEND_URL}api/crud/get`,
         {
           withCredentials: true,
         }
@@ -28,7 +28,7 @@ export default function Home() {
   const handleDeleteItem = async (_id: string) => {
     try {
       await axios.delete(
-        `${import.meta.env.VITE_BACKEND_URL}/api/crud/delete/${_id}`,
+        `${import.meta.env.VITE_BACKEND_URL}api/crud/delete/${_id}`,
         {
           withCredentials: true,
         }

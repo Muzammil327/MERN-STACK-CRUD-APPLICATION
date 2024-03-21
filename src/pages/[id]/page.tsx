@@ -23,7 +23,7 @@ export default function Update() {
 
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/crud/update/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}api/crud/update/${id}`,
         data
       );
 
@@ -48,7 +48,7 @@ export default function Update() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/crud/single/${id}`,
+        `${import.meta.env.VITE_BACKEND_URL}api/crud/single/${id}`,
         {
           withCredentials: true,
         }
