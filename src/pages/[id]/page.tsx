@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import { Routes, Route, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Update() {
   let { id } = useParams();
@@ -27,18 +28,17 @@ export default function Update() {
         data
       );
 
-      if (response.data.error) {
-        alert(response.data.message);
-        console.log(response.data.message);
+      if (response.data && response.data.error) {
+        toast.error(response.data.error);
       } else {
         navigate("/");
+        toast.success(response.data.message);
         setData({
           fname: "",
           lname: "",
           email: "",
           para: "",
         });
-        alert(response.data.message);
       }
     } catch (error) {
       console.log(error);

@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import { toast } from "react-toastify";
 
 export default function Add() {
   const navigate = useNavigate();
@@ -22,11 +23,12 @@ export default function Add() {
         `${import.meta.env.VITE_BACKEND_URL}api/crud/post`,
         data
       );
+
       if (response.data && response.data.error) {
-        alert(response.data.error.message);
-        console.log(response.data.error.message);
+        toast.error(response.data.error);
       } else {
         navigate("/");
+        toast.success(response.data.message);
         setData({
           fname: "",
           lname: "",
