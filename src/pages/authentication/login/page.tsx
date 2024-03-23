@@ -39,7 +39,7 @@ export default function Login() {
       if (response.data && response.data.error) {
         toast.error(response.data.error);
       } else {
-        navigate("/profile");
+        navigate("/authentication/profile");
         toast.success(response.data.message);
         setData({
           email: "",

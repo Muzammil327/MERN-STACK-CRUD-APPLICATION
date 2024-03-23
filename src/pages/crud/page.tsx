@@ -11,7 +11,7 @@ interface Data {
   para: string;
 }
 
-export default function Home() {
+export default function HomeCrud() {
   const [data, setData] = useState<Data[]>([]);
 
 

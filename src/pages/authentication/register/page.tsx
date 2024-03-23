@@ -31,7 +31,7 @@ export default function Register() {
           email: "",
           password: "",
         });
-        navigate("/login");
+        navigate("/authentication/login");
       }
     } catch (error) {
       console.log(error);
