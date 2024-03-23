@@ -13,6 +13,9 @@ interface Data {
 
 export default function Home() {
   const [data, setData] = useState<Data[]>([]);
+
+
+  // console.log(baseUrl + page)
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -21,10 +24,12 @@ export default function Home() {
           withCredentials: true,
         }
       );
+      // setTotalPages(response.data.page);
       setData(response.data);
     };
     fetchData();
   }, []);
+
   const handleDeleteItem = async (_id: string) => {
     try {
       await axios.delete(
@@ -43,7 +48,7 @@ export default function Home() {
     <>
       <div className="relative overflow-x-auto lg:px-8 md:px-6 px-4">
         <Link
-          to="/add"
+          to="/crud/add"
           className="items-end justify-end block w-40 my-5 bg-gray-800 text-white py-2 px-4 rounded-md "
         >
           Add New User
@@ -86,12 +91,11 @@ export default function Home() {
                     <td className="px-6 py-4"> {datas.para}</td>
                     <td className="px-6 py-4 gap-4 flex items-center">
                       <Link
-                        to={datas._id}
+                        to={`/crud/${datas._id}`}
                         className="bg-blue-500 text-white py-2 px-4 rounded-md"
                       >
                         Update
                       </Link>
-                      {/* onClick={() => handleDeleteItem(data._id)} */}
 
                       <button
                         onClick={() => handleDeleteItem(datas._id)}
@@ -104,15 +108,6 @@ export default function Home() {
                 </>
               );
             })}
-            {/* <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-              >
-                Apple MacBook Pro 17"
-              </th> */}
-            {/* <td className="px-6 py-4">Silver</td>
-              <td className="px-6 py-4">Laptop</td>
-              <td className="px-6 py-4">$2999</td> */}
           </tbody>
         </table>
       </div>
