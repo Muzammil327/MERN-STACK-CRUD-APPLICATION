@@ -1,25 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import { toast } from "react-toastify";
-import { UserContext } from "../context/userContext";
 
 export default function Login() {
-  const { currentUser } = useContext(UserContext);
-  console.log(currentUser);
 
   const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
     password: "",
   });
-  // useEffect(() => {
-  //   // Redirect to profile page if user is already logged in
-  //   if (currentUser) {
-  //     navigate("/profile");
-  //   }
-  // }, [currentUser, navigate]);
 
   const SubmitHandle = async (e: any) => {
     e.preventDefault();
@@ -56,7 +47,7 @@ export default function Login() {
       <div className="min-h-screen flex items-center justify-center ">
         <div className="bg-white shadow-md rounded-lg px-12 py-6 lg:w-5/12 md:w-8/12 sm:w-10/12 w-full">
           <h1 className="text-2xl font-bold text-center mb-4">
-            Welcome Add User!
+            Welcome Login User!
           </h1>
           <form onSubmit={SubmitHandle}>
             <div className="mb-4">
