@@ -43,7 +43,7 @@ export default function Register() {
       <div className="min-h-screen flex items-center justify-center ">
         <div className="bg-white shadow-md rounded-lg px-12 py-6 lg:w-5/12 md:w-8/12 sm:w-10/12 w-full">
           <h1 className="text-2xl font-bold text-center mb-4">
-            Welcome Add User!
+            Welcome Register User!
           </h1>
           <form onSubmit={SubmitHandle}>
             <div className="mb-4">
